@@ -9,29 +9,26 @@ class Wordle():
 
         self.result = get_all_words()
 
-    def insert(self, word, pattern):
-        assert len(word) == 5
+    def insert(self, input_word, pattern):
+        assert len(input_word) == 5
         assert len(pattern) == 5
 
-        word_list = [i for i in self.result]
-
-        for s_word in word_list:
+        def match_wordle(input_word, pattern, word):
             for i in range(5):
                 if pattern[i] == 'g':
-                    if s_word[i] != word[i]:
-                        self.result.remove(s_word)
-                        break
+                    if input_word[i] != word[i]:
+                        return False
                 elif pattern[i] == 'y':
-                    if word[i] not in s_word:
-                        self.result.remove(s_word)
-                        break
-                    elif s_word[i] == word[i]:
-                        self.result.remove(s_word)
-                        break
+                    if (input_word[i] not in word) or (input_word[i] == word[i]):
+                        return False
                 elif pattern[i] == 'b':
-                    if word[i] in s_word:
-                        self.result.remove(s_word)
-                        break
+                    if input_word.count(input_word[i]) > 1 and input_word[i] == word[i]:
+                        return False
+                    elif input_word.count(input_word[i]) == 1 and input_word[i] in word:
+                        return False
+            return True
+
+        self.result = [word for word in self.result if match_wordle(input_word, pattern, word)]
 
     def get_suggested_words(self):
-        return ','.join(random.sample(self.result, 10)) if len(self.result) > 10 else ','.join(self.result)
+        return ','.join(self.result) if len(self.result) > 10 else ','.join(self.result)
