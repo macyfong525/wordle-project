@@ -20,6 +20,8 @@ wordle = Wordle()
 # Define a few command handlers. These usually take the two arguments update and
 # context. Error handlers also receive the raised TelegramError object in error.
 def start(update, context):
+    global wordle
+    wordle = Wordle()
     button = InlineKeyboardMarkup([[InlineKeyboardButton('wordle', url='https://www.nytimes.com/games/wordle/index.html')]])
     update.message.reply_text(wordle.start(), reply_markup=button)
 
