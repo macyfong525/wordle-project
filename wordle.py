@@ -5,13 +5,25 @@ WORD_FILE = '5-letter-words.txt'
 LETTER_NUMBER = 5
 
 
-def get_all_words():
-    return [line.rstrip() for line in open(WORD_FILE)]
-
-
 class Wordle():
     def __init__(self):
-        self.result = list(set(get_all_words()))
+        def get_all_words():
+            return [line.rstrip() for line in open(WORD_FILE)]
+
+        def letter_frequency(word_list):
+            letter_counter = Counter(chain.from_iterable(word_list))
+            return {char: cnt / sum(letter_counter.values()) for char, cnt in letter_counter.items()}
+
+        self.all_words = list(set(get_all_words()))
+        self.result = self.all_words
+        self.letter_frequency = letter_frequency(self.all_words)
+
+    def start(self):
+        s_dict = {}
+        for word in self.all_words:
+            if len(Counter(word)) == 5:
+                s_dict[word] = sum(self.letter_frequency[char] for char in word)
+        return sorted(s_dict, key=s_dict.get, reverse=True)[:10]
 
     def insert(self, input_word, pattern):
         assert len(input_word) == LETTER_NUMBER
@@ -38,15 +50,12 @@ class Wordle():
     def get_suggested_words(self):
         suggest_list = {}
 
-        def letter_frequency(word_list):
-            letter_counter = Counter(chain.from_iterable(word_list))
-            return {char: cnt / sum(letter_counter.values()) for char, cnt in letter_counter.items()}
         try:
-            total_char_score = letter_frequency(get_all_words())
+            total_char_score = self.letter_frequency
             for word in self.result:
                 score = sum(total_char_score[char] for char in word)
                 suggest_list[word] = score
-                suggest_words = sorted(suggest_list, key=suggest_list.get, reverse=True)[:10]
+            suggest_words = sorted(suggest_list, key=suggest_list.get, reverse=True)[:10]
         except Exception as e:
             print(e)
             return suggest_list
@@ -65,3 +74,4 @@ if __name__ == '__main__':
     wordle.insert(a, b)
     result = wordle.get_suggested_words()
     print(result)
+    print(wordle.start())
