@@ -18,6 +18,9 @@ wordle.insert(word, status)
 wordle.get_suggested_words()
 ```
 
+## telegram bot
+![My Image](Telegram.jpeg)
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
