@@ -19,7 +19,7 @@ wordle.get_suggested_words()
 ```
 
 ## telegram bot
-<img src="./images/telegram_bot.png" width="200" display="inline-block />
+<img src="./images/telegram_bot.png" width="200" display="inline-block" />
 <img src="./images/wordle.png" width="180" display="inline-block" />
 
 
