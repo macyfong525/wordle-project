@@ -1,7 +1,7 @@
 from collections import Counter
 from itertools import chain
 
-WORD_FILE = '5-letter-words.txt'
+WORD_FILE = '../config/5-letter-words.txt'
 LETTER_NUMBER = 5
 
 
@@ -47,6 +47,7 @@ class Wordle():
 
         self.result = [word for word in self.result if match_wordle(input_word, pattern, word)]
 
+    # TODO information theory add InfoTheory()
     def get_suggested_words(self):
         suggest_list = {}
 

@@ -13,7 +13,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 # config
-TOKEN_FILE = "config.json"
+TOKEN_FILE = "../config/config.json"
 wordle = Wordle()
 
 

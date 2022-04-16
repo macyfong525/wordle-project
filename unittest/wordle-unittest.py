@@ -1,5 +1,5 @@
 import unittest
-from wordle import Wordle
+from script.wordle import Wordle
 
 
 class MyTestCase(unittest.TestCase):
