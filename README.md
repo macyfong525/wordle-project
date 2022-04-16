@@ -18,10 +18,11 @@ wordle.insert(word, status)
 wordle.get_suggested_words()
 ```
 
-## telegram bot
-<img src="./images/telegram_bot.png" width="200" style="display:inline-block" />
-<img src="./images/wordle.png" width="180" style="display:inline-block" />
-
+## Telegram bot
+<div style="display:inline-block">
+<img src="./images/telegram_bot.png" width="200" />
+<img src="./images/wordle.png" width="180" />
+</div>
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
