@@ -19,16 +19,9 @@ wordle.get_suggested_words()
 ```
 
 ## telegram bot
-<div style="width: 200px; display: inline-block;">
+<img src="./images/telegram_bot.png" width="200"/>
+<img src="./images/wordle.png" width="180"/>
 
-  ![](./images/telegram_bot.png) 
-
-</div>
-<div style="width: 180px; display: inline-block;">
-
-  ![](./images/wordle.png) 
-
-</div>
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
